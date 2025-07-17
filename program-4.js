@@ -26,11 +26,15 @@ arrayObj = [
   },
 ];
 
-let prop = "prop_5";
+let prop = { prop_5: "val_5" };
+let key = Object.keys(prop)[0];
 
 function getIndex(prop) {
+  prop = Object.entries(prop)[0];
+  let key = prop[0];
+  let value = prop[1];
   for (let index in arrayObj) {
-    if (arrayObj[index][prop] !== undefined) {
+    if (arrayObj[index][key] !== undefined && arrayObj[index][key] === value) {
       return index;
     }
   }
@@ -38,7 +42,7 @@ function getIndex(prop) {
 
 let result = getIndex(prop);
 if (result) {
-  console.log(result);
+  console.log(`index of an object for ${key} ${prop[key]} : ${result}`);
 } else {
   console.log("Property not found");
 }
