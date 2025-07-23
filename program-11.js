@@ -13,15 +13,19 @@
 // Output: true
 
 function isAnagram(str1, str2) {
+  let flag;
   for (char of str1) {
-    if (char !== " " && !str2.includes(char)) {
-      return false;
+    if (char !== " " && str2.includes(char.toLowerCase())) {
+      flag = true;
+    } else {
+      flag = false;
     }
   }
 
-  return true;
+  return flag;
 }
 
 console.log(isAnagram("evil", "vile"));
 console.log(isAnagram("gentleman", "elegant man"));
 console.log(isAnagram("evil", "vile"));
+console.log(isAnagram("evil Utsav", "vile vastu"));

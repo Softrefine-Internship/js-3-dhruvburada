@@ -30,9 +30,8 @@ let prop = { prop_5: "val_5" };
 let key = Object.keys(prop)[0];
 
 function getIndex(prop) {
-  prop = Object.entries(prop)[0];
-  let key = prop[0];
-  let value = prop[1];
+  let [key, value] = Object.entries(prop)[0];
+
   for (let index in arrayObj) {
     if (arrayObj[index][key] !== undefined && arrayObj[index][key] === value) {
       return index;
